@@ -3,16 +3,14 @@ package main
 import "fmt"
 
 func main() {
-	var myFuncVariable func(string) int
-	myFuncVariable = f1
-	result := myFuncVariable("Hello")
-	fmt.Println(result)
-
-	myFuncVariable = f2
-	result = myFuncVariable("Hello")
-	fmt.Println(result)
+	for i := 0; i < 5; i++ {
+		func(j int) {
+			fmt.Println("printing", j, "from inside of an anonymous function")
+		}(i)
+	}
 }
 
+// // *************************** ////
 func f1(a string) int {
 	return len(a)
 }
@@ -25,3 +23,5 @@ func f2(a string) int {
 
 	return total
 }
+
+//// *************************** ////
