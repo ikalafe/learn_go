@@ -3,11 +3,11 @@ package main
 import "fmt"
 
 func main() {
-	for i := 0; i < 5; i++ {
-		func(j int) {
-			fmt.Println("printing", j, "from inside of an anonymous function")
-		}(i)
-	}
+	x := 10
+	faledUPdate(&x)
+	fmt.Println(x)
+	update(&x)
+	fmt.Println(x)
 }
 
 // // *************************** ////
@@ -25,3 +25,12 @@ func f2(a string) int {
 }
 
 //// *************************** ////
+
+func faledUPdate(px *int) {
+	x2 := 20
+	px = &x2
+}
+
+func update(px *int) {
+	*px = 20
+}
